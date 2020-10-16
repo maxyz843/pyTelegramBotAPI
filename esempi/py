@@ -1,0 +1,49 @@
+#! / usr / bin / python#! / usr / bin / python
+	
+
+	# Questo è un semplice echo bot che utilizza il meccanismo del decoratore.
+	# Fa eco a tutti i messaggi di testo in arrivo.
+	
+
+	importa  telebot
+	
+
+	API_TOKEN  =  '1341537429:AAGakjg2NFysed8kZS02H-OHt1HZMsQgOD4'
+	
+
+	bot  =  telebot . TeleBot ( API_TOKEN )
+	
+
+	
+
+	# Gestisci "/ start" e "/ help"
+	@ bot . message_handler ( comandi = [ 'help' , 'start' ])
+	def  send_welcome ( messaggio ):
+	    bot . reply_to ( messaggio , "" " \
+	Sono otaku-bot.
+	Ciao grazie per avermi salvato in una chat \
+	"" " )
+	
+
+	
+
+	# Gestisci tutti gli altri messaggi con content_type 'text' (content_types il valore predefinito è ['text'])
+	@ bot . message_handler ( func = messaggio lambda  : True )
+	def  echo_message ( messaggio ):
+if message.text==' Ciao' :
+    bot . reply_to ( messaggio ,  'ciao io sono un bot se hai bisogno di informazioni messaggia il mio creatore e lui che mi ha sviluppato ok, ed e lui che ha scritto questo testo qundi CONTATTAMI' )
+elif  message.text=='questo e solo un test' :
+    bot . reply_to ( messaggio ,  'ciao' )
+else:    
+bot . reply_to ( messaggio ,  'sono stato appena creato e non capisco tutti i messaggi. Prova ha scrivere altro.' )
+
+
+
+
+# Gestisci tutti gli altri messaggi con content_type 'text' (content_types il valore predefinito è ['text'])
+@ bot . message_handler ( func = messaggio lambda  : True )
+def  echo_message ( messaggio ):
+    bot . reply_to ( messaggio , messaggio . testo )
+
+
+bot . polling ()
